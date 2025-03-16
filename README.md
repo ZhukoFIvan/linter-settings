@@ -4,6 +4,13 @@
 
 A collection of console brain games.
 
+## Демонстрация игры
+
+**Видео 1 (Запуск первой игры):**  
+[Смотреть запись](https://asciinema.org/a/T1MolfFsDS3G2WmoJPhuHLiIn)
+
+**Видео 2 (Запуск второй игры):**   
+[Смотреть запись](https://asciinema.org/a/m4U2tI0Sm6uJZtXQFqPDM88hb)
 
 ## Games
 
