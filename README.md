@@ -1,6 +1,6 @@
 # Brain Games
 
-[![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/586a14f60b2bcf2b46e3/maintainability)](https://codeclimate.com/github/ZhukoFIvan/linter-settings/maintainability)
 
 A collection of console brain games.
 
