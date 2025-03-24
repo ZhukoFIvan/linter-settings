@@ -1,24 +1,17 @@
-import { getRandomNumber, getLCMForMultiple } from '../utils.js'
-import runGame from '../index.js'
+import { runGame } from '../engine.js'
+import { getRandomNumber, getLCM } from '../utils.js'
 
-const description = 'Найдите наименьшее общее кратное двух чисел.'
-const minNumber = 1
-const maxNumber = 100
-const numbersCount = 3
+const GAME_DESCRIPTION = 'Найдите наименьшее общее кратное двух чисел.'
+const MIN_NUMBER = 1
+const MAX_NUMBER = 20
 
 const generateRound = () => {
-	const numbers = []
-
-	for (let i = 0; i < numbersCount; i += 1) {
-		numbers.push(getRandomNumber(minNumber, maxNumber))
-	}
-
-	const question = numbers.join(' ')
-	const correctAnswer = String(getLCMForMultiple(numbers))
+	const num1 = getRandomNumber(MIN_NUMBER, MAX_NUMBER)
+	const num2 = getRandomNumber(MIN_NUMBER, MAX_NUMBER)
+	const question = `${num1} ${num2}`
+	const correctAnswer = String(getLCM(num1, num2))
 
 	return { question, correctAnswer }
 }
 
-export default () => {
-	runGame(description, generateRound)
-}
+export default () => runGame(GAME_DESCRIPTION, generateRound)

@@ -1,44 +1,32 @@
+import { runGame } from '../engine.js'
 import { getRandomNumber } from '../utils.js'
-import runGame from '../index.js'
 
-const description = 'Какое число пропущено в прогрессии?'
-const minStart = 1
-const maxStart = 10
-const minRatio = 2
-const maxRatio = 5
-const minLength = 5
-const maxLength = 10
+const GAME_DESCRIPTION = 'Какое число пропущено в прогрессии?'
+const PROGRESSION_LENGTH = 10
+const MIN_START = 1
+const MAX_START = 50
+const MIN_STEP = 2
+const MAX_STEP = 5
 
-const generateProgression = (start, ratio, length) => {
+const generateProgression = (start, step, length) => {
 	const progression = []
-	let current = start
-
 	for (let i = 0; i < length; i += 1) {
-		progression.push(current)
-		current *= ratio
+		progression.push(start + step * i)
 	}
-
 	return progression
 }
 
 const generateRound = () => {
-	const start = getRandomNumber(minStart, maxStart)
-	const ratio = getRandomNumber(minRatio, maxRatio)
-	const length = getRandomNumber(minLength, maxLength)
+	const start = getRandomNumber(MIN_START, MAX_START)
+	const step = getRandomNumber(MIN_STEP, MAX_STEP)
+	const progression = generateProgression(start, step, PROGRESSION_LENGTH)
 
-	const progression = generateProgression(start, ratio, length)
-	const hiddenIndex = getRandomNumber(0, length - 1)
-
+	const hiddenIndex = getRandomNumber(0, PROGRESSION_LENGTH - 1)
 	const correctAnswer = String(progression[hiddenIndex])
+	progression[hiddenIndex] = '..'
 
-	const questionProgression = [...progression]
-	questionProgression[hiddenIndex] = '..'
-
-	const question = questionProgression.join(' ')
-
+	const question = progression.join(' ')
 	return { question, correctAnswer }
 }
 
-export default () => {
-	runGame(description, generateRound)
-}
+export default () => runGame(GAME_DESCRIPTION, generateRound)
